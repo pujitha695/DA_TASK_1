@@ -1,0 +1,114 @@
+            "|    min|              3.07|               1.0|Female|    No| Fri|Dinner|                 1|\n",
+            "|    max|             50.81|              10.0|  Male|   Yes|Thur| Lunch|                 6|\n",
+            "+-------+------------------+------------------+------+------+----+------+------------------+\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.groupBy(\"day\") \\\n",
+        "  .avg(\"total_bill\") \\\n",
+        "  .show()"
+      ],
+      "metadata": {
+        "id": "7Mk13gcDqUOK",
+        "outputId": "f0aa0443-93ad-4186-9f9b-3d0bb7c77e47",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "+----+------------------+\n",
+            "| day|   avg(total_bill)|\n",
+            "+----+------------------+\n",
+            "|Thur|17.682741935483865|\n",
+            "| Sun|21.410000000000004|\n",
+            "| Sat|20.441379310344825|\n",
+            "| Fri|17.151578947368417|\n",
+            "+----+------------------+\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.orderBy(col(\"total_bill\").desc()) \\\n",
+        "  .show(10)"
+      ],
+      "metadata": {
+        "id": "LJMcnLGFqYjx",
+        "outputId": "81c5cbbc-d63e-4574-8bfa-85404ce16b54",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "+----------+----+------+------+----+------+----+\n",
+            "|total_bill| tip|   sex|smoker| day|  time|size|\n",
+            "+----------+----+------+------+----+------+----+\n",
+            "|     50.81|10.0|  Male|   Yes| Sat|Dinner|   3|\n",
+            "|     48.33| 9.0|  Male|    No| Sat|Dinner|   4|\n",
+            "|     48.27|6.73|  Male|    No| Sat|Dinner|   4|\n",
+            "|     48.17| 5.0|  Male|    No| Sun|Dinner|   6|\n",
+            "|     45.35| 3.5|  Male|   Yes| Sun|Dinner|   3|\n",
+            "|      44.3| 2.5|Female|   Yes| Sat|Dinner|   3|\n",
+            "|     43.11| 5.0|Female|   Yes|Thur| Lunch|   4|\n",
+            "|     41.19| 5.0|  Male|    No|Thur| Lunch|   5|\n",
+            "|     40.55| 3.0|  Male|   Yes| Sun|Dinner|   2|\n",
+            "|     40.17|4.73|  Male|   Yes| Fri|Dinner|   4|\n",
+            "+----------+----+------+------+----+------+----+\n",
+            "only showing top 10 rows\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"Insights:\")\n",
+        "print(\"1. Analyzed restaurant billing dataset using PySpark.\")\n",
+        "print(\"2. Calculated average bills across different days.\")\n",
+        "print(\"3. Compared tipping behavior by gender.\")\n",
+        "print(\"4. Identified highest billing records.\")\n",
+        "print(\"5. Demonstrated distributed data processing using Spark.\")"
+      ],
+      "metadata": {
+        "id": "_M14hR0IqdMI",
+        "outputId": "b3fcca40-0898-4d06-ec19-477d657567a2",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Insights:\n",
+            "1. Analyzed restaurant billing dataset using PySpark.\n",
+            "2. Calculated average bills across different days.\n",
+            "3. Compared tipping behavior by gender.\n",
+            "4. Identified highest billing records.\n",
+            "5. Demonstrated distributed data processing using Spark.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
